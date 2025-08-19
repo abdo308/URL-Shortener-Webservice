@@ -1,11 +1,11 @@
 # URL Shortener Webservice
 
 ## 📌 Team Members
-- **[Abdalrhman Magdy]** 
-- **[Mohamed Ezzat]** 
-- **[Safiya Mahmoud]** 
-- **[Mahmoud Hanafy]**
-- **[Ahmed Tarek]**
+- **Abdalrhman Magdy** 
+- **Mohamed Ezzat** 
+- **Safiya Mahmoud** 
+- **Mahmoud Hanafy**
+- **Ahmed Tarek**
 
 ---
 
