@@ -54,3 +54,14 @@ Thumbs.db
 .env.development
 .env.test
 .env.production
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Runtime database files (not the schema/migrations)
+*.db
+*.sqlite
+*.sqlite3
