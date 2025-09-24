@@ -7,12 +7,8 @@ from app.storage import (
     generate_short_code,
     store_url_mapping,
     get_original_url,
-    increment_click_count,
-    get_url_info
+    increment_click_count
 )
-from app.database import URLMapping
-from sqlalchemy import select
-from typing import List
 
 # Create APIRouter instance for endpoints
 router = APIRouter()
@@ -62,4 +58,3 @@ async def redirect_to_original(
     
     # Issue a redirect to the original URL
     return RedirectResponse(url=original_url, status_code=302)
-
