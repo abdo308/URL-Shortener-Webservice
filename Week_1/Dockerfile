@@ -1,15 +1,14 @@
 # Multi-stage Docker build for URL Shortener
 
 # Stage 1: Build stage - Install dependencies
-FROM python:3.9-slim AS builder
+FROM python:3.9-alpine AS builder
 
 # Set working directory
 WORKDIR /app
 
-# Install build tools (if needed for compiling deps)
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential gcc \
-    && rm -rf /var/lib/apt/lists/*
+# Install build tools (Alpine uses apk instead of apt-get)
+RUN apk add --no-cache \
+    build-base gcc musl-dev
 
 # Copy requirements
 COPY requirements.txt .
@@ -18,7 +17,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
 # Stage 2: Production stage - Runtime image
-FROM python:3.9-slim AS production
+FROM python:3.9-alpine AS production
 
 # Set working directory
 WORKDIR /app
