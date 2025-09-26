@@ -1,8 +1,11 @@
 services:
-  url-shotener:
+  url-shortener:
     build: .
     ports:
-      - 8000:8000
+      - "8000:8000"
     volumes:
-      - ./data/url_shortener.db:/app/url_shortener.db
+      # Mount the entire data directory for database persistence
+      - ./data:/app/data
+    environment:
+      - DATABASE_PATH=/app/data/url_shortener.db
 

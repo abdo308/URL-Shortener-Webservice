@@ -27,7 +27,8 @@ class URLMapping(Base):
     click_count = Column(Integer, default=0)
 
 # Database connection setup
-DATABASE_URL = "sqlite+aiosqlite:///./url_shortener.db"
+DATABASE_PATH = os.getenv("DATABASE_PATH", "/app/data/url_shortener.db")
+DATABASE_URL = f"sqlite+aiosqlite:///{DATABASE_PATH}"
 
 # Create async engine for database operations
 engine = create_async_engine(DATABASE_URL, echo=True)  # echo=True shows SQL queries in logs
