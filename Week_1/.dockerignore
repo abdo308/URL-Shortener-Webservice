@@ -1,13 +1,20 @@
+# Docker files themselves
+Dockerfile
+docker-compose.yml
+docker-compose.yaml
+.dockerignore
+
 # Python cache and compiled files
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 
-# Database files
+# Database files (we'll mount these via volume)
 *.db
 *.sqlite
 *.sqlite3
+data/
 
 # Environment files
 .env
@@ -37,8 +44,9 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Documentation (optional - remove this line if you want to include README in Docker)
+# Documentation
 *.md
+README*
 
 # Logs
 *.log
@@ -56,6 +64,3 @@ node_modules/
 .pytest_cache/
 .coverage
 htmlcov/
-
-# Run script (since we're using uvicorn directly)
-run.py

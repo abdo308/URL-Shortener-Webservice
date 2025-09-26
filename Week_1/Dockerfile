@@ -1,5 +1,3 @@
-# Multi-stage Docker build for URL Shortener
-
 # Stage 1: Build stage - Install dependencies
 FROM python:3.9-alpine AS builder
 
@@ -25,8 +23,11 @@ WORKDIR /app
 # Copy installed Python packages from builder
 COPY --from=builder /install /usr/local
 
-# Copy application code
-COPY . .
+# Copy only Python source files (avoids __pycache__)
+COPY app/*.py app/
+
+# Create the data directory for database
+RUN mkdir -p /app/data
 
 # Expose app port
 EXPOSE 8000
