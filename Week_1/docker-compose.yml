@@ -1,0 +1,8 @@
+services:
+  url-shotener:
+    build: .
+    ports:
+      - 8000:8000
+    volumes:
+      - ./data/url_shortener.db:/app/url_shortener.db
+
